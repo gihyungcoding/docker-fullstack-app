@@ -21,3 +21,13 @@ after_success:
   - docker push skrmskdl2/docker-frontend
   - docker push skrmskdl2/docker-backend
   - docker push skrmskdl2/docker-nginx
+
+deploy:
+  provider: elasticbeanstalk
+  region: ap-northeast-2
+  app: "docker-fullstack-app-1"
+  env: "Dockerfullstackapp1-env-1"
+  bucket_name: elasticbeanstalk-ap-northeast-2-250058502806
+  bucket_path: "docker-fullstack-app-1"
+  on:
+    branch: "master"
